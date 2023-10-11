@@ -3,9 +3,8 @@ import Square from '../Square/Square'
 import { calculateWinner } from '../../helpers/calculateWinner';
 import Status from '../Status/Status';
 
-const Grid = () => {
-    const [xIsNext, setxIsNext] = useState(true);
-    const [squares, setSquares] = useState(Array(9).fill(null));
+const Grid = ({xIsNext, squares, onPlay}) => {
+   
 
     const handleClick = (i) => {
         // if there is already a value, then do not trigger an event
@@ -20,10 +19,8 @@ const Grid = () => {
         // O Player turn
         else
             nextSquares[i] = 'O';
-        // set the State to re-render DOM
-        setSquares(nextSquares);
-        // move turn
-        setxIsNext(!xIsNext);
+        // call handlePlay to set the State to re-render DOM
+        onPlay(nextSquares);
     }
 
     return (

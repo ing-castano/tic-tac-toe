@@ -1,8 +1,20 @@
 import React from 'react'
 
-const History = () => {
+const History = ({history, onJump}) => {
   return (
-    <div>History</div>
+    <ol>
+        {history.map((square, index) => {
+                return (
+                    <li key={'move'+index}>
+                        <button 
+                            onClick = {() => {onJump(index + 1)}}
+                        > 
+                            {(index === 0) ? 'Jump to Start' : 'Jump to ' + index + ' move' }
+                        </button>
+                    </li>
+                );
+        })}
+    </ol>
   )
 }
 
