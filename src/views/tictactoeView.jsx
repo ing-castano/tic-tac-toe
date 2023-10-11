@@ -1,5 +1,6 @@
 import React from 'react'
 import Grid from '../components/Grid/Grid'
+import History from '../components/History/History'
 
 const TictactoeView = () => {
   return (
@@ -11,8 +12,8 @@ const TictactoeView = () => {
             justifyContent: "space-between",
             alignItems: "center",
         }}>
-            <div> <Grid /> </div>
-            <div>list</div>
+            <Grid />
+            <History />
         </div>
     </>
   )

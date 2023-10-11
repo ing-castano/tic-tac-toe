@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Square from '../Square/Square'
 import { calculateWinner } from '../../helpers/calculateWinner';
+import Status from '../Status/Status';
 
 const Grid = () => {
     const [xIsNext, setxIsNext] = useState(true);
@@ -27,6 +28,9 @@ const Grid = () => {
 
     return (
         <div className='board'>
+            <div className='row'>
+                < Status winner={calculateWinner(squares)} next={xIsNext}/>
+            </div>
             <div className='row'>
                 < Square value={squares[0]} onSquareClick={() => handleClick(0)}/>
                 < Square value={squares[1]} onSquareClick={() => handleClick(1)}/>
